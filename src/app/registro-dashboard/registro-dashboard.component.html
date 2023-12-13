@@ -1,0 +1,94 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <header class="header">
+            <a href="#" class="logo">
+              <img class="logo__img" src="https://i.pinimg.com/564x/0d/93/74/0d9374f7c3e600fb19cfbf7e45d2e283.jpg" width="60px" height="60px">
+            </a>
+          </header>
+        <h1 style="color: #f5f5f3">Policlinico ULEAM</h1>
+        <div class="d-flex">
+            <button (click)="clickAddRegistro()" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">Registrar</button>
+            <button routweLink="/login" class="btn btn-danger mx-2">Cerrar sesion</button>
+        </div>
+    </div>
+</nav>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th scope="col">Registro Id</th>
+            <th scope="col">Cédula</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Nombres</th>
+            <th scope="col">Género</th>
+            <th scope="col">Cuidad</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Telefono</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of RegistroData">
+            <td>{{row.id}}</td>
+            <td>{{row.cedula}}</td>
+            <td>{{row.apellidos}}</td>
+            <td>{{row.nombres}}</td>
+            <td>{{row.genero}}</td>
+            <td>{{row.ciudad}}</td>
+            <td>{{row.direccion}}</td>
+            <td>{{row.telefono}}</td>
+            <td>
+                <button type="button" (click)="onEdit(row)" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info">Editar</button>
+                <button type="button" (click)="deleteRegistro(row)" class="btn btn-danger mx-3">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title" id="exampleModalLabel">Detalle de Registro</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formValue">
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Cédula:</label>
+                    <input type="number" formControlName="cedula" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Apellidos:</label>
+                    <input type="text" formControlName="apellidos" class="form-control" id="exampleInputEmail1">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Nombres:</label>
+                    <input type="text" formControlName="nombres" class="form-control" id="exampleInputEmail1" name="emailHelp" >
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Género:</label>
+                    <input type="text" formControlName="genero" class="form-control" id="exampleInputEmail5">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Ciudad:</label> 
+                    <input type="text" formControlName="ciudad" class="form-control" id="exampleInputEmail2">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Dirección:</label>  
+                    <input type="text" formControlName="direccion" class="form-control" id="exampleInputEmail3">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Teléfono:</label>
+                    <input type="number" formControlName="telefono" class="form-control" id="exampleInputEmail4">
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancelar" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" *ngIf="showAdd" (click)="postRegistroDetalles()" class="btn btn-primary">Agregar</button>
+          <button type="button" *ngIf="ShowUpdate" (click)="updateRegistroDetalles()" class="btn btn-primary">Actualizar</button>
+        </div>
+      </div>
+    </div>
+  </div>

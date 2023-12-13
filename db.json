@@ -1,0 +1,59 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 2,
+      "cedula": "1310934847",
+      "apellidos": "Hernandez Meza",
+      "nombres": "Fani Michelle",
+      "genero": "Femenino",
+      "ciudad": "Manta",
+      "direccion": "Calle 100",
+      "telefono": "0945371839"
+    },
+    {
+      "id": 3,
+      "cedula": "1317028023",
+      "apellidos": "Guerra Manzaba",
+      "nombres": "Anna Sofia ",
+      "genero": "Femenino",
+      "ciudad": "Manta",
+      "direccion": "Calle 8",
+      "telefono": "0947281930"
+    },
+    {
+      "id": 4,
+      "cedula": "1317028023",
+      "apellidos": "España Zambrano",
+      "nombres": "Estefani Nicole",
+      "genero": "Femenino",
+      "ciudad": "Manta",
+      "direccion": "Calle 201",
+      "telefono": "0967600597"
+    },
+    {
+      "id": 5,
+      "cedula": "1315628390",
+      "apellidos": "Lopez mero",
+      "nombres": "David Jay",
+      "genero": "Masculino",
+      "ciudad": "Manta",
+      "direccion": "Calle 45",
+      "telefono": "0934672801"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
